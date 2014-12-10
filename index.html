@@ -40,7 +40,31 @@
                         </div>
                         <div class="panel" ng-show="panel.isSelected(3)">
                             <h4>Reviews</h4>
-                            <blockquote>None yet</blockquote>
+                            <blockquote ng-repeat="review in product.reviews">
+                                <b>Stars: {{review.stars}}</b>
+                                {{review.body}}
+                                <cite>by: {{review.author}}</cite>
+                            </blockquote>
+                            <form name="reviewForm">
+                                <blockquote>
+                                    <b>Stars: {{review.stars}}</b>
+                                    {{review.body}}
+                                    <cite>by: {{review.author}}</cite>
+                                </blockquote>
+                                <select ng-model="review.stars">
+                                    <option value="1">1 Star</option>
+                                    <option value="2">2 Stars</option>
+                                    <option value="3">3 Stars</option>
+                                    <option value="4">4 Stars</option>
+                                    <option value="5">5 Stars</option>
+                                </select>
+                                <br/>
+                                <textarea ng-model="review.body"></textarea>
+                                <br/>
+                                <label>by:</label>
+                                <input type="email" ng-model="review.author" placeholder="your email"></input>
+                                <input type="submit" value="Submit"/>
+                            </form>
                         </div>
                     </section>
                 </h3>
