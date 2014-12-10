@@ -5,7 +5,14 @@
         <script type="text/javascript" src="assets/angular.min.js"></script>
         <script type="text/javascript" src="assets/main.js"></script>
     </head>
-    <body>
-        <p>{{"hey" + " there"}}</p>
+    <body ng-controller="StoreController as store">
+        <div ng-repeat="product in store.products">
+            <h1> {{product.name}} </h1>
+            <h2> ${{product.price}} </h2>
+            <p> {{product.description}} </p>
+            <button ng-show="product.canPurchase"> Add to Cart </button>
+            <hr/>
+        </div>
+
     </body>
 </html>
