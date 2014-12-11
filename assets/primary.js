@@ -10,11 +10,11 @@
 
   app.controller('PanelController', function() {
     this.tab = 1;
+    this.isSelected = function(checkTab) {
+      return this.tab === checkTab;
+    };
     this.selectTab = function(setTab) {
       return this.tab = setTab;
-    };
-    return this.isSelected = function(checkTab) {
-      return this.tab === checkTab;
     };
   });
 
@@ -38,6 +38,16 @@
           stars: 1,
           body: 'This product sucks',
           author: 'tim@hater.com'
+        }
+      ]
+    }, {
+      name: 'Pentagonal Gem',
+      price: 5.95,
+      description: '....',
+      images: [
+        {
+          full: 'assets/img/gem-01.gif',
+          thumb: 'assets/img/gem-01.gif'
         }
       ]
     }
