@@ -13,6 +13,16 @@ app.controller 'PanelController', ->
     @tab = setTab
   return
 
+app.controller 'ReviewController', ->
+  @review = {}
+
+  @addReview = (product)->
+    product.reviews.push(@review)
+    @review = {}
+    return
+
+  return
+
 gems = [
   {
     name: 'Dodechedron'
