@@ -33,13 +33,6 @@
     };
   });
 
-  app.directive('reviewSelect', function() {
-    return {
-      restrict: 'E',
-      tempateUrl: 'review-select.html'
-    };
-  });
-
   gems = [
     {
       name: 'Dodechedron',

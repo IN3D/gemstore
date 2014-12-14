@@ -28,12 +28,6 @@ app.directive 'productTitle', ->
     templateUrl: 'product-title.html'
   }
 
-app.directive 'reviewSelect', ->
-  {
-    restrict: 'E'
-    tempateUrl: 'review-select.html'
-  }
-
 gems = [
   {
     name: 'Dodechedron'
