@@ -52,13 +52,13 @@
                             </blockquote>
 
 
-                            <form name="reviewForm">
+                            <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewCtrl.addReview(product)">
                                 <blockquote>
-                                    <b>Stars: {{review.stars}}</b>
-                                    {{review.body}}
-                                    <cite>by: {{review.author}}</cite>
+                                    <b>Stars: {{reviewCtrl.review.stars}}</b>
+                                    {{reviewCtrl.review.body}}
+                                    <cite>by: {{reviewCtrl.review.author}}</cite>
                                 </blockquote>
-                                <select ng-model="review.stars">
+                                <select ng-model="reviewCtrl.review.stars">
                                     <option value="1">1 Star</option>
                                     <option value="2">2 Stars</option>
                                     <option value="3">3 Stars</option>
@@ -66,10 +66,10 @@
                                     <option value="5">5 Stars</option>
                                 </select>
                                 <br/>
-                                <textarea ng-model="review.body"></textarea>
+                                <textarea ng-model="reviewCtrl.review.body"></textarea>
                                 <br/>
                                 <label>by:</label>
-                                <input type="email" ng-model="review.author" placeholder="your email"></input>
+                                <input type="email" ng-model="reviewCtrl.review.author" placeholder="your email"></input>
                                 <input type="submit" value="Submit"/>
                             </form>
 

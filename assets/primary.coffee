@@ -15,6 +15,12 @@ app.controller 'PanelController', ->
 
 app.controller 'ReviewController', ->
   @review = {}
+
+  @addReview = (product)->
+    product.reviews.push(@review)
+    @review = {}
+    return
+
   return
 
 gems = [
