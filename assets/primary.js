@@ -18,6 +18,10 @@
     };
   });
 
+  app.controller('ReviewController', function() {
+    this.review = {};
+  });
+
   gems = [
     {
       name: 'Dodechedron',
