@@ -20,17 +20,7 @@
                     <img ng-src="{{product.images[0].full}}"/>
 
                     <section ng-controller="PanelController as panel">
-                        <ul class="nav nav-pills">
-                            <li ng-class="{active:panel.isSelected(1)}">
-                                <a href ng-click="panel.selectTab(1)">Description</a>
-                            </li>
-                            <li ng-class="{active:panel.isSelected(2)}">
-                                <a href ng-click="panel.selectTab(2)">Specifications</a>
-                            </li>
-                            <li ng-class="{active:panel.isSelected(3)}">
-                                <a href ng-click="panel.selectTab(3)">Reviews</a>
-                            </li>
-                        </ul>
+                        <tabs-block></tabs-block>
 
                         <div class="panel" ng-show="panel.isSelected(1)">
                             <h4>Description</h4>
@@ -51,11 +41,7 @@
                             </blockquote>
 
                             <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
-                                <blockquote>
-                                    <b>Stars: {{reviewCtrl.review.stars}}</b>
-                                    {{reviewCtrl.review.body}}
-                                    <cite>by: {{reviewCtrl.review.author}}</cite>
-                                </blockquote>
+                                <review-block></review-block>
                                 <select ng-model="reviewCtrl.review.stars" required>
                                     <option value="1">1 Star</option>
                                     <option value="2">2 Stars</option>
@@ -68,7 +54,6 @@
                                 <br/>
                                 <label>by:</label>
                                 <input type="email" ng-model="reviewCtrl.review.author" placeholder="your email" required></input>
-                                <div> reviewForm is {{reviewForm.$valid}} </div>
                                 <input type="submit" value="Submit"/>
                             </form>
 

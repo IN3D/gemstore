@@ -33,6 +33,20 @@
     };
   });
 
+  app.directive('reviewBlock', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'review-block.html'
+    };
+  });
+
+  app.directive('tabsBlock', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'tabs-block.html'
+    };
+  });
+
   gems = [
     {
       name: 'Dodechedron',

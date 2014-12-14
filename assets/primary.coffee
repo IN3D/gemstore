@@ -28,6 +28,18 @@ app.directive 'productTitle', ->
     templateUrl: 'product-title.html'
   }
 
+app.directive 'reviewBlock', ->
+  {
+    restrict: 'E',
+    templateUrl: 'review-block.html'
+  }
+
+app.directive 'tabsBlock', ->
+  {
+    restrict: 'E'
+    templateUrl: 'tabs-block.html'
+  }
+
 gems = [
   {
     name: 'Dodechedron'
