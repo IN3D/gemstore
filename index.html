@@ -15,8 +15,7 @@
             <ul class="list-group">
                 <li class="list-group-item" ng-repeat="product in store.products">
                 <h3>
-                    {{product.name}}
-                    <em class="pull-right">{{product.price | currency}}</em>
+                    <product-title></product-title>
                     <br/>
                     <img ng-src="{{product.images[0].full}}"/>
 
@@ -51,20 +50,20 @@
                                 <cite>by: {{review.author}}</cite>
                             </blockquote>
 
-
                             <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
                                 <blockquote>
                                     <b>Stars: {{reviewCtrl.review.stars}}</b>
                                     {{reviewCtrl.review.body}}
                                     <cite>by: {{reviewCtrl.review.author}}</cite>
                                 </blockquote>
-                                <select ng-model="reviewCtrl.review.stars" required>
+                                <review-select></review-select>
+                                <!--<select ng-model="reviewCtrl.review.stars" required>
                                     <option value="1">1 Star</option>
                                     <option value="2">2 Stars</option>
                                     <option value="3">3 Stars</option>
                                     <option value="4">4 Stars</option>
                                     <option value="5">5 Stars</option>
-                                </select>
+                                </select>-->
                                 <br/>
                                 <textarea ng-model="reviewCtrl.review.body" required></textarea>
                                 <br/>

@@ -20,8 +20,19 @@ app.controller 'ReviewController', ->
     product.reviews.push(@review)
     @review = {}
     return
-
   return
+
+app.directive 'productTitle', ->
+  {
+    restrict: 'E'
+    templateUrl: 'product-title.html'
+  }
+
+app.directive 'reviewSelect', ->
+  {
+    restrict: 'E'
+    tempateUrl: 'review-select.html'
+  }
 
 gems = [
   {
