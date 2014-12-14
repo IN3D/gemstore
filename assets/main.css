@@ -8,6 +8,9 @@ div.primary {
   width: 50%;
   margin: 0 auto; }
 
+.ng-invalid.ng-dirty {
+  border-color: #FA787E; }
+
 /* Bootstrap Overwrites */
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
   background-color: #A1005E;
