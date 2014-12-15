@@ -34,10 +34,17 @@ app.directive 'reviewBlock', ->
     templateUrl: 'review-block.html'
   }
 
-app.directive 'tabsBlock', ->
+app.directive 'productPanels', ->
   {
     restrict: 'E'
-    templateUrl: 'tabs-block.html'
+    templateUrl: 'product-panels.html'
+    controller: ->
+      @tab = 1
+      @isSelected = (checkTab)->
+        @tab == checkTab
+      @selectTab = (setTab)->
+        @tab = setTab
+    controllerAs: 'panel'
   }
 
 gems = [

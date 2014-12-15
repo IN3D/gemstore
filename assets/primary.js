@@ -40,10 +40,20 @@
     };
   });
 
-  app.directive('tabsBlock', function() {
+  app.directive('productPanels', function() {
     return {
       restrict: 'E',
-      templateUrl: 'tabs-block.html'
+      templateUrl: 'product-panels.html',
+      controller: function() {
+        this.tab = 1;
+        this.isSelected = function(checkTab) {
+          return this.tab === checkTab;
+        };
+        return this.selectTab = function(setTab) {
+          return this.tab = setTab;
+        };
+      },
+      controllerAs: 'panel'
     };
   });
 
