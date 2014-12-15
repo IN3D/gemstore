@@ -1,8 +1,14 @@
-app = angular.module 'store', []
+app = angular.module 'store', ['store-products']
 
-app.controller 'StoreController', ->
+app.controller 'StoreController', [ '$http', ($http)->
   @products = gems
-  return
+  store = @
+  store.products = []
+
+  $http.get('/products.json').success (data)->
+    store.products = data
+    return
+  return]
 
 app.controller 'PanelController', ->
   @tab = 1
@@ -20,7 +26,6 @@ app.controller 'ReviewController', ->
     product.reviews.push(@review)
     @review = {}
     return
-
   return
 
 gems = [

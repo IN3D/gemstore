@@ -2,11 +2,19 @@
 (function() {
   var app, gems;
 
-  app = angular.module('store', []);
+  app = angular.module('store', ['store-products']);
 
-  app.controller('StoreController', function() {
-    this.products = gems;
-  });
+  app.controller('StoreController', [
+    '$http', function($http) {
+      var store;
+      this.products = gems;
+      store = this;
+      store.products = [];
+      $http.get('/products.json').success(function(data) {
+        store.products = data;
+      });
+    }
+  ]);
 
   app.controller('PanelController', function() {
     this.tab = 1;
