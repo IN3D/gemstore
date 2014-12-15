@@ -1,8 +1,14 @@
-app = angular.module 'store', []
+app = angular.module 'store', ['store-products']
 
-app.controller 'StoreController', ->
+app.controller 'StoreController', [ '$http', ($http)->
   @products = gems
-  return
+  store = @
+  store.products = []
+
+  $http.get('/products.json').success (data)->
+    store.products = data
+    return
+  return]
 
 app.controller 'PanelController', ->
   @tab = 1
@@ -21,31 +27,6 @@ app.controller 'ReviewController', ->
     @review = {}
     return
   return
-
-app.directive 'productTitle', ->
-  {
-    restrict: 'E'
-    templateUrl: 'product-title.html'
-  }
-
-app.directive 'reviewBlock', ->
-  {
-    restrict: 'E',
-    templateUrl: 'review-block.html'
-  }
-
-app.directive 'productPanels', ->
-  {
-    restrict: 'E'
-    templateUrl: 'product-panels.html'
-    controller: ->
-      @tab = 1
-      @isSelected = (checkTab)->
-        @tab == checkTab
-      @selectTab = (setTab)->
-        @tab = setTab
-    controllerAs: 'panel'
-  }
 
 gems = [
   {

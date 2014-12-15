@@ -2,11 +2,19 @@
 (function() {
   var app, gems;
 
-  app = angular.module('store', []);
+  app = angular.module('store', ['store-products']);
 
-  app.controller('StoreController', function() {
-    this.products = gems;
-  });
+  app.controller('StoreController', [
+    '$http', function($http) {
+      var store;
+      this.products = gems;
+      store = this;
+      store.products = [];
+      $http.get('/products.json').success(function(data) {
+        store.products = data;
+      });
+    }
+  ]);
 
   app.controller('PanelController', function() {
     this.tab = 1;
@@ -23,37 +31,6 @@
     this.addReview = function(product) {
       product.reviews.push(this.review);
       this.review = {};
-    };
-  });
-
-  app.directive('productTitle', function() {
-    return {
-      restrict: 'E',
-      templateUrl: 'product-title.html'
-    };
-  });
-
-  app.directive('reviewBlock', function() {
-    return {
-      restrict: 'E',
-      templateUrl: 'review-block.html'
-    };
-  });
-
-  app.directive('productPanels', function() {
-    return {
-      restrict: 'E',
-      templateUrl: 'product-panels.html',
-      controller: function() {
-        this.tab = 1;
-        this.isSelected = function(checkTab) {
-          return this.tab === checkTab;
-        };
-        return this.selectTab = function(setTab) {
-          return this.tab = setTab;
-        };
-      },
-      controllerAs: 'panel'
     };
   });
 
